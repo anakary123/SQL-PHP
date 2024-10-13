@@ -1,0 +1,55 @@
+{
+    "producto1": {
+      "titulo": "Paquete a Cancún Todo Incluido",
+      "cuerpo": "Disfruta de 7 días en Cancún con todo incluido: vuelos, hotel y comidas.",
+      "imagen": "public/img/caribe.jpg",
+      "fecha": "2024-09-07"
+    },
+    "producto2": {
+      "titulo": "Tour por Europa 15 Días",
+      "cuerpo": "Recorre las principales ciudades europeas en 15 días. Incluye vuelos, transporte y guías locales.",
+      "imagen": "public/img/europa.jpg",
+      "fecha": "2024-09-07"
+    },
+    "producto3": {
+      "titulo": "Crucero por el Caribe",
+      "cuerpo": "Embárcate en un crucero de lujo por el Caribe. Visita varias islas mientras que te encantaran.",
+      "imagen": "public/img/crucero.jpg",
+      "fecha": "2024-09-07"
+    },
+    "producto4": {
+      "titulo": "Aventura en Machu Picchu",
+      "cuerpo": "Explora las maravillas de Machu Picchu con un paquete que incluye vuelos, hotel y excursiones.",
+      "imagen": "public/img/cuzco.jpg",
+      "fecha": "2024-09-07"
+    },
+    "producto5": {
+      "titulo": "Safari en África",
+      "cuerpo": "Vive y disfruta una experiencia única con un safari en África. Incluye hospedaje en lodges, transporte y tours por las reservas naturales.",
+      "imagen": "public/img/safari.jpg",
+      "fecha": "2024-09-07"
+    },
+  "producto6": {
+  "titulo": "Escapada a las Islas Maldivas",
+  "cuerpo": "Relájate en un resort de lujo en las Maldivas durante 6 días. Incluye vuelos, alojamiento en cabañas sobre el agua.",
+  "imagen": "public/img/maldivas.jpg",
+  "fecha": "2024-09-07"
+},
+"producto7": {
+  "titulo": "Descubre Nueva Zelanda en 10 Días",
+  "cuerpo": "Explora la belleza natural de Nueva Zelanda con un tour que incluye vuelo, alojamiento y visitas guiadas por paisajes impresionantes.",
+  "imagen": "public/img/nuevazelanda.jpg",
+  "fecha": "2024-09-07"
+},
+"producto8": {
+  "titulo": "Ruta del Vino en La Toscana",
+  "cuerpo": "Disfruta de una escapada de 7 días por la región vinícola de la Toscana, Italia. Incluye vuelos, alojamiento en viñedos.",
+  "imagen": "public/img/vino.jpg",
+  "fecha": "2024-09-07"
+}
+  }
+  
+
+
+
+

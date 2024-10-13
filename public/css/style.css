@@ -1,0 +1,292 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.banner {
+    background-image: url(../img/fondo.png); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(247, 243, 243);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-size: 1.2em;
+    color: rgba(42, 81, 113, 0.615);
+    background-color: #c3f5f1;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 65px;
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Familia tipográfica */
+
+}
+.btn-secondary {
+    background-color:darkcyan;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+.btn:hover {
+    background-color: #0fc2ea;
+}
+
+.custom-btn {
+    padding: 10px 25px;
+    font-size: 1.2em;
+    color: rgba(42, 81, 113, 0.615);
+    background-color: #c3f5f1;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-items: center;
+
+}
+
+.custom-btn:hover {
+    background-color: #0fc2ea;
+}
+
+/*Estilos del Logo*/
+.d-inline-block{
+    border-radius: 50px;
+}
+
+.navbar-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+.nav-link.active{
+    font-weight: bold;
+}
+/*Estilos de la galeria conoce tus destinos*/
+#noticiascontainer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas si es necesario */
+    margin: 10px; /* Ajuste de margen negativo para compensar el padding */
+    padding: 10px;
+    gap: 10px;
+}
+
+.card-title{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 - 10px;
+}
+.card-img-top{
+    justify-content: center;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.card-text{
+    font-size: 1rem;
+    color:#070707
+}
+
+/*conoce tus destinos*/
+.text-center{
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 3.em; /* Tamaño de fuente grande para destacar el encabezado */
+    color: #323333; /* Color del texto */
+    margin: 0px 5px; /* Espacio arriba y abajo del encabezado */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Familia tipográfica */
+    line-height: 1.2; /* Altura de línea para mejorar la legibilidad */
+    margin-top: 20px;
+}
+
+.sectionPadding {
+    padding: 50px;
+}
+
+
+/*reseñas*/
+
+#reseñascontainer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas si es necesario */
+    margin: 0 -10px; /* Ajuste de margen negativo para compensar el padding */
+    padding-left: 25px;
+    padding-right: 15px;
+}
+
+.custom-card {
+justify-content: center;
+align-items: center;
+background-color: #daf6f7;
+box-shadow: 0 4px 8px rgba(82, 50, 81, 0.652);
+}
+
+.custom-card-body {
+    margin-left: 10;
+    justify-items: center;
+    padding: auto;
+}
+
+.card-title {
+text-align: center;
+font-size: 1.5rem;
+color:#070707
+
+}
+
+.card-text {
+    text-align: center;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*galeria*/
+.galeria-img { 
+    margin: 30px 20px 10px 100px;
+    box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*sombra ligera*/
+    display: inline-block;
+    width: 243px;
+    height: 200px;
+    border-radius: 4px; /*bordes redondeados*/
+    margin-top: 20px;
+    margin-left: 20px;
+    color: yellow;
+    text-shadow: 1px 2px 2px black,0 0 25px blue, 0 0 5px blue;
+    text-align: center;
+}
+
+#galeria1{
+   
+    margin-top: 150px;
+    text-align: center;
+    color: #178b8b;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*estilos para el presupuesto*/
+.error{
+  background: red;
+  font-size: 12px;
+}
+
+.presupuesto {
+    font-weight: bold;
+    color:darkgreen;
+    font-size: 30px;
+}
+#presupuesto1{
+    margin-top: 150px;
+    text-align: center;
+    color: #178b8b;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.parte1{
+    color: #178b8b;
+}
+.parte2{
+    color: #178b8b;
+}
+
+/*estilos para el footer*/
+
+footer {
+    background-color: #178b8b;
+    color: white;
+    font-size:small;
+    text-align: center;
+    margin-top: 50px; /* Agrega espacio entre la sección anterior y el footer */
+    padding: 20px;
+}
+
+.social-icons {
+    margin-bottom: 5px;
+}
+.social-icons img {
+    width: 40px;
+    margin: 20px;
+}
+.company-info, .legal-notice {
+    margin: 5px 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+.espacioEntreElementosDelPresupuesto {
+    margin-bottom: 35px;
+}
+
+/* estilos contacto*/
+#contacto1{
+margin-top: 150px;
+text-align: center;
+color: #178b8b;
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.presupuestoFinal {
+    border: none;
+    
+}
+
+.presupuestoFinal:focus {
+    outline: none;
+}
+
