@@ -1,5 +1,5 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,50 +9,47 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0./css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a4b1bc17f3.js" crossorigin="anonymous"></script>
   </head>
-
-  <body>  
-
+  
+  <body>
     <!--La combinación del id="navbar" y class="nav" sugiere que este div será estilizado 
     para funcionar como la Barra de navegación utilizando Javascript para darle funcionalidad y estructura-->
     <div id="navbar" class="nav"></div>
-    <div class="banner" >
+    <!-- Sección de encabezado -->
+     
+    <header class="header">
       <div class="overlay"></div>
-      <div class="content">
-        <h1>¡Bienvenido a Inspirate y Viaja!</h1>
-        <p>Explora los mejores destinos y vive experiencias inolvidables.¡Tu próxima aventura empieza aquí!</p>
-        <a href="#destinos" class="btn">Explorar Destinos</a>
+      <div class="header-content">
+        <br>
+        <h1>¡Bienvenidos a Inspirate y Viaja</h1>
+        <p>Explora los mejores destinos y vive experiencias  inolvidables.¡Tu próxima aventura empieza aquí</p>
+        <br>
+        <a href="#destinos-container" class="btn btn-primary">Explora tus Momentos</a>
+      </div>
+    </header>
+    <!-- Sección de destinos cargados dinámicamente -->
+     
+    <div class="destinos-section">
+      <div class="destinos-container" id="destinos-container">
+        <!-- Aquí se cargarán las tarjetas dinámicamente desde el archivo JSON -->
       </div>
     </div>
-
-    <!--Este código crea una sección estructurada para mostrar destinos turísticos o noticias, 
-    con un diseño centrado y estilizado y deja espacio para la inserción de contenido dinámico en el futuro.
-    El sistema de rejilla sugiere que el contenido que se agregue (por ejemplo, imágenes o descripciones de los destinos) 
-    se alineará en columnas de manera responsive, adaptándose bien a diferentes tamaños de pantalla.-->
-
-    <section id="destinos" class="sectionPadding">
-      <h2 class="text-center" style="margin-top: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)">Conoce tus Destinos</h2>
-      <div>
-        <div class="contenedor">
-          <div class="row" id="noticiascontainer"></div>
-
-        </div>
-      </div>
-            
-    </section>
+    <script src="public/js/app.js"></script>
+    
     <section id="sobre-nosotros">
-      <h2 class="text-center" style="margin-top: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)">Sobre Nosotros</h2>
+      <h2 class="text-center">Sobre Nosotros</h2>
       <br>
-      <p style="font-size: 18px; color: #0f0f0f; line-height: 1.6; text-align: center; margin-right: 10%; margin-left: 10%;">
+      <p class="Nosotros">
         En <strong>Inspirate y Viaja</strong> nuestra pasión por los viajes se traduce en experiencias inolvidables
         diseñadas para satisfacer los deseos y expectativas de cada cliente.
         Con más de una década de experiencia en el mercado, nos enorgullecemos de ofrecer una amplia
         variedad de paquetes turísticos personalizados que se adaptan a los gustos y preferencias de cada viajero.
         Desde escapadas relajantes en playas paradisíacas hasta emocionantes aventuras en destinos remotos,
         nos especializamos en crear itinerarios únicos y a medida.
+    
       </p>
     </section>
     <section id="Reseñas" class="sectionPadding">
-      <h2 class="text-center" style=" text-align: center; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);margin-bottom: 50px; margin-top: 5px">Reseñas</h2>
+      <h2 class="text-center" id="reseñas1" >Reseñas</h2>
       <div>
         <div class="contenedor">
           <div class="row" id="reseñascontainer"></div>
@@ -72,4 +69,4 @@
     <script src="public/js/navbar.js"></script>
     <script src="public/js/footer.js"></script>
   </body>
-  </html>
+</html>

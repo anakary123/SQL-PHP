@@ -1,22 +1,19 @@
-body, html {
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
 }
 
-.banner {
-    background-image: url(../img/fondo.png); 
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(247, 243, 243);
+h1, p {
+    color: white;
     text-align: center;
+}
+
+
+.header {
     position: relative;
-    z-index: 1;
+    height: 60vh;
+    background: url('../img/fondo.png') no-repeat center center/cover;
 }
 
 .overlay {
@@ -25,25 +22,102 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(109, 107, 107, 0.6);
 }
 
-.content {
+.header-content {
     position: relative;
-    z-index: 2;
-    max-width: 800px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-h1 {
-    font-size: 3em;
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.search-bar input, .search-bar button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sección de destinos */
+.destinos-section {
+    padding: 40px;
+    background: url('../img/fondo2.png') no-repeat center center/cover;
+}
+
+.destinos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-bottom: 35px;
+}
+
+
+.destino-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.destino-card:hover {
+    transform: translateY(-10px);
+}
+
+.destino-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destino-card h2 {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+.destino-card p {
+    padding: 0 20px;
+    color: #555;
+}
+
+.destino-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
+.destino-card button:hover {
+    background-color: #0056b3;
 }
 
+/*input de presupuesto*/
 .btn {
     padding: 10px 25px;
     font-size: 1.2em;
@@ -70,9 +144,11 @@ p {
 .btn:hover {
     background-color: #0fc2ea;
 }
+/*boton de la galeria*/
 
 .custom-btn {
     padding: 10px 25px;
+    margin-left: 70px;
     font-size: 1.2em;
     color: rgba(42, 81, 113, 0.615);
     background-color: #c3f5f1;
@@ -81,13 +157,8 @@ p {
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-items: center;
-
 }
 
-.custom-btn:hover {
-    background-color: #0fc2ea;
-}
 
 /*Estilos del Logo*/
 .d-inline-block{
@@ -109,9 +180,19 @@ p {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas si es necesario */
     margin: 10px; /* Ajuste de margen negativo para compensar el padding */
-    padding: 10px;
-    gap: 10px;
+    padding: 50px;
+    gap: 0px; /* Espacio entre las imágenes */
 }
+
+#noticiascontainer img {
+    
+    box-sizing: border-box; /* Para incluir el padding y borde en el ancho total */
+    width: 345px;
+    height: 300px;
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
 
 .card-title{
     padding: 20px;
@@ -121,11 +202,11 @@ p {
     text-align: center;
     justify-content: center;
     text-align: center;
-    margin: 0 - 10px;
+    margin: 0  10px ;
 }
 .card-img-top{
     justify-content: center;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
     box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -135,16 +216,33 @@ p {
     color:#070707
 }
 
-/*conoce tus destinos*/
-.text-center{
-    text-align: center; /* Alinea el texto al centro */
-    font-size: 3.em; /* Tamaño de fuente grande para destacar el encabezado */
-    color: #323333; /* Color del texto */
-    margin: 0px 5px; /* Espacio arriba y abajo del encabezado */
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Familia tipográfica */
-    line-height: 1.2; /* Altura de línea para mejorar la legibilidad */
-    margin-top: 20px;
+.primerlado {
+    height: 100vh;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    width: 50%;
 }
+    
+.segundolado {
+    width: 50%;
+    height: 100vh;
+    padding: 0;
+
+}
+    
+#division {
+    display: flex;
+    height: 100vh;
+}
+
+/*conoce tus destinos*/
+
+#destinos{
+    margin-top: 5px;
+
+}
+
 
 .sectionPadding {
     padding: 50px;
@@ -152,10 +250,14 @@ p {
 
 
 /*reseñas*/
+#reseñas1{
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
 
 #reseñascontainer {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas si es necesario */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas */
     margin: 0 -10px; /* Ajuste de margen negativo para compensar el padding */
     padding-left: 25px;
     padding-right: 15px;
@@ -169,9 +271,9 @@ box-shadow: 0 4px 8px rgba(82, 50, 81, 0.652);
 }
 
 .custom-card-body {
-    margin-left: 10;
+    margin-left : 10;
     justify-items: center;
-    padding: auto;
+    padding: 10;
 }
 
 .card-title {
@@ -188,26 +290,22 @@ color:#070707
 }
 
 /*galeria*/
-.galeria-img { 
-    margin: 30px 20px 10px 100px;
-    box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*sombra ligera*/
-    display: inline-block;
-    width: 243px;
-    height: 200px;
-    border-radius: 4px; /*bordes redondeados*/
-    margin-top: 20px;
-    margin-left: 20px;
-    color: yellow;
-    text-shadow: 1px 2px 2px black,0 0 25px blue, 0 0 5px blue;
-    text-align: center;
-}
-
 #galeria1{
    
-    margin-top: 150px;
+    margin-top: 100px;
     text-align: center;
     color: #178b8b;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.galeria-img {
+    object-fit: cover; /* Para llenar el área definida sin distorsión */
+    border-radius: 5px; /* Opcional: esquinas redondeadas */
+    border: 1px solid #ddd; /* Opcional: borde para resaltar la imagen */
+    margin:auto;
+    padding: 10px;
+    display: block;
 }
 
 /*estilos para el presupuesto*/
@@ -290,3 +388,12 @@ text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     outline: none;
 }
 
+/*sobre nosotros*/
+.Nosotros{
+    font-size: 18px;
+     color: #0f0f0f;
+      line-height: 1.6; 
+      text-align: center; 
+      margin-right: 10%; 
+      margin-left: 10%;
+}
