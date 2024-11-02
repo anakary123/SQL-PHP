@@ -15,7 +15,7 @@ function cargarDestinos() {
                     <img src="${destino.imagen}" alt="${destino.nombre}">
                     <h2>${destino.nombre}</h2>
                     <p>${destino.descripcion}</p>
-                    <a href="views/presupuesto.html">
+                    <a href="views/presupuesto.php">
                         <button>Reservar</button>
                     </a>
                 `;

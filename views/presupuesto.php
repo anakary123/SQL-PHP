@@ -12,7 +12,11 @@
 
        <!--La combinación del id="navbar" y class="nav" sugiere que este div será utilizado
        para funcionar como la Barra de navegación utilizando Javascript para darle funcionalidad y estructura-->
-        <div id="navbar" class="nav"></div>
+        <div id="navbar" class="nav">
+            <?php
+                include_once('../navbar.php')
+            ?>
+        </div>
         <div class="container mt-5">
             <h1 class="text-center mb-4" id="presupuesto1">Presupuesto</h1>
             <form id="presupuestoForm">
@@ -118,14 +122,17 @@
         </div>
         <!--Creamos un documento en javascript llamado "footer.js" por lo tanto en nuestro HTML 
         agregamos un div y creamos un id para el footer"-->
-        <div id="footer"></div>
+        <div id="footer">
+            <?php
+                include_once('../footer.php');
+            ?>
+        </div>
         
         <!--Enlaces de boostraap y de todos los documentos creados en javascript-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
         <script src="../public/js/navbar.js"></script>
-        <script src="../public/js/footer.js"></script>
         <script src="../public/js/presupuesto.js"></script>
     
     </body>

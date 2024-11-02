@@ -397,3 +397,7 @@ text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       margin-right: 10%; 
       margin-left: 10%;
 }
+
+.custom-link {
+    color: #0056b3 !important;
+}

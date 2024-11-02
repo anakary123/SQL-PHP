@@ -13,7 +13,11 @@
 
         <!--La combinación del id="navbar" y class="nav" sugiere que este div será estilizado 
         para funcionar como la Barra de navegación utilizando Javascript para darle funcionalidad y estructura-->
-        <div id="navbar" class="nav"></div>
+        <div id="navbar" class="nav">
+            <?php
+                include_once('../navbar.php')
+            ?>
+        </div>
         
         <section id="galeria" class="sectionPadding">
             <h1 class="text-center" id="galeria1">Galeria</h1>
@@ -127,7 +131,11 @@
 
             <!--Creamos un documento en javascript llamado "footer.js" por lo tanto en nuestro HTML
             agregamos un div y creamos un id para el footer"-->
-            <div id="footer"></div>
+            <div id="footer">
+                <?php
+                    include_once('../footer.php');
+                ?>
+            </div>
 
             <!--Este código JavaScript define funciones que se ejecutan cuando se abren dos instancias de lightbox
              (ventanas emergentes de galería de imágenes).-->
@@ -148,6 +156,5 @@
             <script src="../public/js/fslightbox.js"></script>
             <script src="fslightbox.min.js"></script>
             <script src="../public/js/navbar.js"></script>
-            <script src="../public/js/footer.js"></script>
     </body>
 </html>

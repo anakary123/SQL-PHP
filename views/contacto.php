@@ -16,7 +16,11 @@
     <!--La combinación del id="navbar" y class="nav" sugiere que este div será estilizado 
     para funcionar como la Barra de navegación utilizando Javascript para darle funcionalidad y estructura-->
 
-    <div id="navbar" class="nav"></div>
+    <div id="navbar" class="nav">
+        <?php
+          include_once('../navbar.php')
+        ?>
+    </div>
     <section id="contacto">
       <h1 class="text-center" id="contacto1">Contacto</h1>
       <div class="container">
@@ -49,7 +53,11 @@
     <!--Creamos un documento en javascript llamado "footer.js" por lo tanto en nuestro HTML 
     agregamos un div y creamos un id para el footer"-->
 
-    <div id="footer"></div>
+    <div id="footer">
+        <?php
+            include_once('../footer.php');
+        ?>
+      </div>
 
     <!--Enlaces de boostraap y de todos los documentos creados en javascript-->
     
@@ -60,7 +68,6 @@
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="../public/js/mapa.js"></script>
     <script src="../public/js/navbar.js"></script>
-    <script src="../public/js/footer.js"></script>
     <script src="../public/js/rutas.js"></script>
 
   </body>
