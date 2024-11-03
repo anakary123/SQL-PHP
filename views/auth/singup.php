@@ -23,15 +23,20 @@
         <div class="card-body">
             <h5 class="card-title">Inicio de sesión</h5>
             
-            <form action="register.php" method="POST">
+            <form action="../../core/auth/singup.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="dni" class="form-label">DNI</label>
-                    <input type="text" class="form-control" id="dni" name="dni" required>
+                    <label for="lastname" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
                 </div>
 
                 <div class="mb-3">
@@ -39,6 +44,40 @@
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
 
+                <div class="mb-3">
+                    <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sex" class="form-label">Sexo</label>
+                    <select class="form-select" id="sex" name="sex" required>
+                        <option value="">Seleccione un sexo</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <div class="d-flex">
+                        <select class="form-select me-2" id="country-code" name="country-code" required>
+                            <option value="">Código del país</option>
+                            <option value="+1">+1 🇺🇸</option>
+                            <option value="+34">+34 🇪🇸</option>
+                            <option value="+44">+44 🇬🇧</option>
+                            <option value="+55">+55 🇧🇷</option>
+                            <!-- Add more country codes as needed -->
+                        </select>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password" required>
@@ -48,7 +87,7 @@
             </form>
         </div>
         <div class="card-body">
-            <a href='login.php' class='custom-link'>Iniciar Sesión</a>
+            <a href="#" class="card-link custom-link">Registrarse como Admin</a>
         </div>
         </div>
     </div>
