@@ -405,3 +405,8 @@ text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 .card-link{
     color: #2079d8 !important;
 }
+
+.fix-card {
+    margin-bottom: 15px;
+    margin-top: 200px;
+}
