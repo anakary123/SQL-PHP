@@ -19,30 +19,30 @@
     </div>
     
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;">
         <img src="../../public/img/fondo.png" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Inicio de sesión</h5>
+          <h5 class="card-title">Inicio de sesión</h5>
             
-            <form action="login_process.php" method="POST">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            </form>
+          <form action="login_process.php" method="POST">
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          </form>
+          <div class="card-body">
+            <a href='singup.php'  class="card-link">Registro</a>
+            <a href='#' class="card-link">Olvide mi Contraseña</a>
+          </div>
         </div>
-        <div class="card-body">
-            <a class="card-link custom-link" href='singup.php'>Registro</a>
-            <a href="#" class="card-link custom-link">Olvidé mi contraseña</a>
-        </div>
-        </div>
+      </div>
     </div>
-
+    
     <div id="footer">
       <?php
         include_once('../../footer.php');
@@ -53,6 +53,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <?php include_once('validar_login.php'); ?>
 
   </body>
 </html>

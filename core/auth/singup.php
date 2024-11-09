@@ -88,3 +88,5 @@ function storeUserLoginData($pdo, $loginData) {
 }
 
 signupUser();
+
+

@@ -22,6 +22,7 @@
         <img src="../../public/img/fondo.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Inicio de sesión</h5>
+
             
             <form action="../../core/auth/singup.php" method="POST">
                 <div class="mb-3">
@@ -90,6 +91,13 @@
             <a href="#" class="card-link custom-link">Registrarse como Admin</a>
         </div>
         </div>
+    </div>
+    
+
+    <div id="registro">
+      <?php
+        include_once('../../validar_registro.php');
+      ?>
     </div>
 
     <div id="footer">
