@@ -19,7 +19,7 @@ function signupUser() {
     $sex = $_POST['sex'];
     $address = $_POST['address'];
     $phone = $_POST['country-code'].'-'.$_POST['phone'];
-
+-
     //DEBE GUARDARSE EN LA TABLA user_login
     $username = $_POST['username'];
     $password = $_POST['password'];

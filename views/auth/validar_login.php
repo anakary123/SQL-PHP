@@ -1,4 +1,6 @@
 <?php
+
+
 // Iniciar la sesión para manejar los datos del usuario si se necesita
 session_start();
 

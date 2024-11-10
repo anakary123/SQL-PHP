@@ -34,7 +34,7 @@
                 '../galeria.php',
                 '../presupuesto.php',
                 '../contacto.php',
-                'noticias.php',
+                '../noticias.php',
                 'login.php'
             ];
         }

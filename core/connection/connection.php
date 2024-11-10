@@ -2,7 +2,7 @@
 
 function createConnection() {
     $host = 'localhost'; // Cambia esto si tu base de datos está en otro servidor
-    $db = 'webpage'; // Nombre de tu base de datos
+    $db = 'sitioweb'; // Nombre de tu base de datos
     $user = 'root'; // Tu usuario de base de datos
     $pass = ''; // Tu contraseña de base de datos
 
