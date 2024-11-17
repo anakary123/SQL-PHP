@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0./css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a4b1bc17f3.js" crossorigin="anonymous"></script>
   </head>
-  
+   
   <body>
     
     <div id="navbar" class="nav">
@@ -52,11 +52,15 @@
       ?>
     </div>
     
-    <!--Enlaces de boostraap y de todos los documentos creados en javascript-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-    <?php include_once('validar_login.php'); ?>
+      <!--Enlaces de boostraap y de todos los documentos creados en javascript-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
+
 
   </body>
+
+
+
 </html>

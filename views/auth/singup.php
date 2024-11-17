@@ -94,11 +94,6 @@
     </div>
     
 
-    <div id="registro">
-      <?php
-        include_once('../../validar_registro.php');
-      ?>
-    </div>
 
     <div id="footer">
       <?php
