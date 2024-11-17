@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspirate y Viaja</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0./css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a4b1bc17f3.js" crossorigin="anonymous"></script>
   </head>
@@ -17,7 +17,7 @@
 
     <div class="container mt-5">
         <h1 class="text-center mb-4">Modificar Noticia</h1>
-        <form action="procesar_modificacion.php" method="POST" enctype="multipart/form-data">
+        <form action="../../core/news/NewsController.php" method="POST" enctype="multipart/form-data">
             <!-- Campo oculto para enviar el ID de la noticia (si es necesario) -->
             <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>">
 
@@ -58,12 +58,19 @@
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 <a href="listado_noticias.php" class="btn btn-secondary">Cancelar</a>
             </div>
+
+            <input type="hidden" name="method" value="update">
         </form>
     </div>
 
+    <div id="navbar" class="nav">
+        <?php include_once('../../footer.php') ?>
+    </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="../../public/js/utils.js"></script>
 </body>
 </html>
 

@@ -1,7 +1,7 @@
 <?php
 function crearConexion() {
     $host = 'localhost';
-    $db = 'sitioweb';
+    $db = 'webpage';
     $user = 'root';
     $pass = '';
 

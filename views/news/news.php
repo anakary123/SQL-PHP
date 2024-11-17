@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspirate y Viaja</title>
-    <!-- Cargar CSS de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/css/estilos.css">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0./css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4b1bc17f3.js" crossorigin="anonymous"></script>
+  </head>
 <body>
 
 <!--El siguiente div define un contenedor preparado para albergar una barra de navegación, 
@@ -40,7 +40,8 @@
                     <p class='card-text text-muted'>" . htmlspecialchars(substr($noticia['texto'], 0, 80)) . "...</p>
                     <p class='text-muted mb-4'><small>Publicado el " . htmlspecialchars($noticia['fecha']) . " | Usuario " . htmlspecialchars($noticia['idUser']) . "</small></p>
                     <div class='d-flex justify-content-between align-items-center'>
-                        <a href='verNoticia.php?id=" . htmlspecialchars($noticia['idNoticia']) . "' class='btn btn-outline-primary btn-sm'>Mostrar</a>
+                        <a href='create.php' class='btn btn-outline-primary btn-sm'>Mostrar</a>
+                        <a href='update.php?id=" . htmlspecialchars($noticia['idNoticia']) . "' class='btn btn-outline-primary btn-sm'>Editar</a>
                         <form action='../../core/controladores/NoticiasControlador.php' method='POST' style='display:inline;'>
                             <input type='hidden' name='method' value='delete'>
                             <input type='hidden' name='idNoticia' value='" . htmlspecialchars($noticia['idNoticia']) . "'>

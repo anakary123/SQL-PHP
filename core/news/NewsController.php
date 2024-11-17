@@ -11,12 +11,15 @@
                 case 'delete':
                     delete();
                     break;
+                case 'update':
+                    update();
+                    break;
             }
         }
     }
 
     function index() {
-        $pdo = createConnection();
+        $pdo = crearConexion();
 
         $sql = "SELECT * FROM noticias";
 
@@ -28,7 +31,7 @@
     }
 
     function show(int $id) {
-        $pdo = createConnection();
+        $pdo = crearConexion();
 
         $sql = "SELECT * FROM noticias WHERE id = :id";
 
@@ -42,74 +45,67 @@
     }
 
         function store() {
-            $pdo = createConnection();
+            // $pdo = crearConexion();
 
-            // Assign values from the request
-            $titulo = $_POST['titulo'];
-            $imagen = $_POST['imagen'];
-            $texto = $_POST['texto'];
-            $fecha = date('Y-m-d');
-            $idUser = 4;
+            // // Assign values from the request
+            // $titulo = $_POST['titulo'];
+            // $imagen = $_POST['imagen'];
+            // $texto = $_POST['texto'];
+            // $fecha = date('Y-m-d');
+            // $idUser = 4;
 
-            $sql = "INSERT INTO noticias (titulo, imagen, texto, fecha, idUser) 
-                    VALUES (:titulo, :imagen, :texto, :fecha, :idUser)";
+            // $sql = "INSERT INTO noticias (titulo, imagen, texto, fecha, idUser) 
+            //         VALUES (:titulo, :imagen, :texto, :fecha, :idUser)";
 
-            $stmt = $pdo->prepare($sql);
+            // $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':titulo', $titulo);
-            $stmt->bindParam(':imagen', $imagen);
-            $stmt->bindParam(':texto', $texto);
-            $stmt->bindParam(':fecha', $fecha);
-            $stmt->bindParam(':idUser', $idUser);
+            // $stmt->bindParam(':titulo', $titulo);
+            // $stmt->bindParam(':imagen', $imagen);
+            // $stmt->bindParam(':texto', $texto);
+            // $stmt->bindParam(':fecha', $fecha);
+            // $stmt->bindParam(':idUser', $idUser);
 
-            // Ejecutar la consulta
-            if ($stmt->execute()) {    
-                header('Location: ../../views/noticias.php');
-                exit();
-            } else {
-                header('Location: ../../views/noticias.php');
-                exit();
-            }
+            // $stmt->execute();
+            // // Ejecutar la consulta
+
+            header('Location: ../../views/news/create.php');
+            exit();
+           
         }
 
-        function update(int $id) {
-            $pdo = createConnection();
+        function update() {
+            // $pdo = crearConexion();
 
-            $titulo = $_POST['titulo'];
-            $imagen = $_POST['imagen'];
-            $texto = $_POST['texto'];
-            $fecha = $_POST['fecha'];
-            $idUser = $_POST['idUser'];
+            // $titulo = $_POST['titulo'];
+            // $imagen = $_POST['imagen'];
+            // $texto = $_POST['texto'];
+            // $fecha = $_POST['fecha'];
+            // $idUser = $_POST['idUser'];
 
-            $sql = "UPDATE noticias SET titulo = :titulo, 
-                                        imagen = :imagen, 
-                                        texto = :texto, 
-                                        fecha = :fecha, 
-                                        idUser = :idUser 
-                    WHERE id = :id";
+            // $sql = "UPDATE noticias SET titulo = :titulo, 
+            //                             imagen = :imagen, 
+            //                             texto = :texto, 
+            //                             fecha = :fecha, 
+            //                             idUser = :idUser 
+            //         WHERE id = :id";
 
-            $stmt = $pdo->prepare($sql);
+            // $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':titulo', $titulo);
-            $stmt->bindParam(':imagen', $imagen);
-            $stmt->bindParam(':texto', $texto);
-            $stmt->bindParam(':fecha', $fecha);
-            $stmt->bindParam(':idUser', $idUser);
-            $stmt->bindParam(':id', $id);
+            // $stmt->bindParam(':titulo', $titulo);
+            // $stmt->bindParam(':imagen', $imagen);
+            // $stmt->bindParam(':texto', $texto);
+            // $stmt->bindParam(':fecha', $fecha);
+            // $stmt->bindParam(':idUser', $idUser);
+            // $stmt->bindParam(':id', $id);
 
-            if ($stmt->execute()) {
-                header('Location: ../../views/noticias.php');
-                exit();
-            } else {
-                header('Location: ../../views/noticias.php');
-                exit();
-            }
+            header('Location: ../../views/news/news.php');
+            exit();
         }
 
         function delete() {
             $id = $_POST['idNoticia'];
 
-            $pdo = createConnection();
+            $pdo = crearConexion();
 
             $sql = "DELETE FROM noticias WHERE idNoticia = :id";
 

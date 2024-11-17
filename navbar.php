@@ -5,29 +5,30 @@
 
         $route = explode('/',$url);
 
+        //Determinar si la ruta contiene el nombre de la carpeta en donde estoy ubicado
+        $arrayContainsNews = in_array('news', $route);
         $arrayContainsViews = in_array('views', $route);
         $arrayContainsAuth = in_array('auth', $route);
-       
 
-    
+        $definedRoutes = [
+            'index.php',
+            'views/galeria.php',
+            'views/presupuesto.php',
+            'views/contacto.php',
+            'views/news/news.php',
+            'views/auth/login.php'
+        ];
+       
         if ($arrayContainsViews) {
             $definedRoutes = [
                 '../index.php',
                 'galeria.php',
                 'presupuesto.php',
                 'contacto.php',
+                'news/news.php',
                 'auth/login.php'
             ];
 
-        }else{
-            $definedRoutes = [
-                'index.php',
-                'views/galeria.php',
-                'views/presupuesto.php',
-                'views/contacto.php',
-        
-                'views/auth/login.php'
-            ];
         }
 
         if($arrayContainsAuth) {
@@ -36,7 +37,19 @@
                 '../galeria.php',
                 '../presupuesto.php',
                 '../contacto.php',
+                '../news/news.php',
                 'login.php'
+            ];
+        }
+
+        if($arrayContainsNews) {
+            $definedRoutes = [
+                '../../index.php',
+                '../galeria.php',
+                '../presupuesto.php',
+                '../contacto.php',
+                '../auth/login.php',
+                '../auth/singup.php',
             ];
         }
 
@@ -48,6 +61,7 @@
 
         $route = explode('/',$url);
 
+        $arrayContainsNews = in_array('news', $route);
         $arrayContainsViews = in_array('views', $route);
         $arrayContainsAuth = in_array('auth', $route);
 
@@ -57,7 +71,7 @@
             $logo = '../public/img/logo1.png';
         }
 
-        if ($arrayContainsAuth) {
+        if ($arrayContainsAuth || $arrayContainsNews) {
             $logo =  '../../public/img/logo1.png';
         }
 
@@ -87,9 +101,12 @@
                                 <li class='nav-item '>
                                     <a class='nav-link'  id='nav-contacto' href=$routes[3]>Contacto</a>
                                 </li>
+                                <li class='nav-item '>
+                                    <a class='nav-link'  id='nav-contacto' href=$routes[4]>Noticias</a>
+                                </li>
                             </ul>
                             <span class='navbar-text'>
-                                <a class='btn btn-primary' id='login-button' href=$routes[4]}'>Login</a>
+                                <a class='btn btn-primary' id='login-button' href=$routes[5]>Login</a>
                             </span>
                         </div>
                     </div>
@@ -97,4 +114,3 @@
     }
 
     echo renderNavbar();
-?>
