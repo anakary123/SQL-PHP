@@ -21,7 +21,7 @@
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="card" style="width: 30rem;">
         <div class="card-body">    
-          <form action="../../core/citas/CitasController.php" method="POST">
+          <form action="../../core/citas/citascontroller.php" method="POST">
             <!-- Campo para el título de la cita -->
             <div class="mb-3">
               <label for="titulo" class="form-label">Título de la Cita</label>
@@ -59,6 +59,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    <?php include_once('validar_login.php'); ?>
+  
   </body>
 </html>

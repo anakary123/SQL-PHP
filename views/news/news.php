@@ -18,23 +18,23 @@
         <?php include_once('../../navbar.php') ?>
     </div>
 
-    <div class="EspacioDebajoDelNavbar"></div>
+    <div class="..."></div>
     
 <!-- Contenedor de noticias -->
-<div class="container">
+      <div class="container">
     <h2 class="text-center mt-5 mb-5">Noticias Agencia de Viajes</h2>
     <div class="row">
 
     <?php
 
-    include_once('../../core/news/NewsController.php');
+    include_once('../../core/controller/NewsController.php');
 
     $noticias = index();
     foreach ($noticias as $noticia) {
         echo "
         <div class='col-md-6 col-lg-4 mb-4'>
             <div class='card shadow-sm'>
-                <img src='../../public/imagenes/taza1.jpg' class='card-img-top rounded-top' alt='Imagen de " . htmlspecialchars($noticia['titulo']) . "' style='height: 200px; object-fit: cover;'>
+                <img src='../../public/img/cuzco1.jpg' class='card-img-top rounded-top' alt='Imagen de " . htmlspecialchars($noticia['titulo']) . "' style='height: 200px; object-fit: cover;'>
                 <div class='card-body'>
                     <h5 class='card-title text-dark mb-3'>" . htmlspecialchars($noticia['titulo']) . "</h5>
                     <p class='card-text text-muted'>" . htmlspecialchars(substr($noticia['texto'], 0, 80)) . "...</p>
@@ -42,7 +42,7 @@
                     <div class='d-flex justify-content-between align-items-center'>
                         <a href='create.php' class='btn btn-outline-primary btn-sm'>Mostrar</a>
                         <a href='update.php?id=" . htmlspecialchars($noticia['idNoticia']) . "' class='btn btn-outline-primary btn-sm'>Editar</a>
-                        <form action='../../core/controladores/NoticiasControlador.php' method='POST' style='display:inline;'>
+                        <form action='../../core/controller/NewsController.php' method='POST' style='display:inline;'>
                             <input type='hidden' name='method' value='delete'>
                             <input type='hidden' name='idNoticia' value='" . htmlspecialchars($noticia['idNoticia']) . "'>
                         </form>

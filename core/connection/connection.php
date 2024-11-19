@@ -1,18 +1,20 @@
 <?php
 function crearConexion() {
     $host = 'localhost';
-    $db = 'webpage';
+    $dbname = 'sitioweb';
     $user = 'root';
-    $pass = '';
+    $password = '';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
     try {
-        $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
-        $pdo = new PDO($dsn, $user, $pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $pdo;
-
+        return new PDO($dsn, $user, $password, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     } catch (PDOException $e) {
-        echo 'Conexión fallida: ' . $e->getMessage();
-        return false;
+        die("Error al conectar a la base de datos: " . $e->getMessage());
     }
 }
+

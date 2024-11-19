@@ -1,10 +1,12 @@
 <?php
 
-if (!file_exists('../connection/connection.php')) {
-    require_once('../core/connection/connection.php');
-} else {
-    require_once('../connection/connection.php');
-}
+require_once __DIR__ . '/../connection/connection.php';
+
+
+
+// Tu código continúa aquí...
+
+
 
 function handleRequest() {
     if (isset($_POST['method'])) {
@@ -26,7 +28,7 @@ function handleRequest() {
 }
 
 function index() {
-    $pdo = createConnection();
+    $pdo = CrearConexion();
 
     $sql = "SELECT * FROM citas";
 
@@ -38,7 +40,7 @@ function index() {
 }
 
 function show(int $id) {
-    $pdo = createConnection();
+    $pdo = CrearConexion();
 
     $sql = "SELECT * FROM citas WHERE id = :id";
 
@@ -51,8 +53,8 @@ function show(int $id) {
     return $stmt->fetch();
 }
 
-function store() {
-    $pdo = createConnection();
+ function store() {
+    $pdo = CrearConexion();
 
     // Assign values from the request
     $titulo = $_POST['titulo'];
@@ -74,16 +76,16 @@ function store() {
 
     // Ejecutar la consulta
     if ($stmt->execute()) {    
-        header('Location: ../../views/citas.php');
+        header('Location: ../../views/appointments.php');
         exit();
     } else {
-        header('Location: ../../views/citas.php');
+        header('Location: ../../views/appointments.php');
         exit();
     }
 }
 
 function update(int $id) {
-    $pdo = createConnection();
+    $pdo = CrearConexion();
 
     $titulo = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
@@ -119,7 +121,7 @@ function update(int $id) {
 function delete() {
     $id = $_POST['idCita'];
 
-    $pdo = createConnection();
+    $pdo = CrearConexion();
 
     $sql = "DELETE FROM citas WHERE id = :id";
 

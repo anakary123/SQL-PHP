@@ -48,7 +48,7 @@
         function obtenerNoticias() {
             $pdo = conectarBaseDatos();
 
-            $sql = "SELECT id, titulo, contenido, fecha_publicacion, autor FROM noticias ORDER BY fecha_publicacion DESC";
+            $sql = "SELECT id, titulo, imagen, imagen, texto FROM noticias ORDER BY fecha_publicacion DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
@@ -56,4 +56,4 @@
         }
 
         $noticias = obtenerNoticias();
-?>
+        
