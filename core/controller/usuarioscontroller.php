@@ -1,9 +1,6 @@
 <?php
 
-if (!file_exists('../connection/connection.php')) {
-} else {
-    require_once('../connection/connection.php');
-}
+require_once __DIR__ . '/../connection/connection.php';
 
 function handleRequest() {
     if (isset($_POST['method'])) {
@@ -27,7 +24,7 @@ function handleRequest() {
 function indexUsers() {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM user_data";
 
     $stmt = $pdo->prepare($sql);
     

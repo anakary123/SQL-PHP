@@ -22,32 +22,48 @@
 <div class="container">
     <h2 class="text-center mt-5 mb-5">Usuarios</h2>
     <div class="row">
-        <?php
-        include_once('../../core/news/UsuariosController.php');
-
-        $usuarios = obtenerUsuarios(); // Función para obtener usuarios desde el controlador
-        foreach ($usuarios as $usuario) {
-            echo "
-            <div class='col-md-6 col-lg-4 mb-4'>
-                <div class='card shadow-sm'>
-                    <div class='card-body'>
-                        <h5 class='card-title text-dark mb-3'>" . htmlspecialchars($usuario['name']) . "</h5>
-                        <p class='card-text text-muted'>Correo: " . htmlspecialchars($usuario['email']) . "</p>
-                        <div class='d-flex justify-content-between align-items-center'>
-                            <a href='verUsuario.php?id=" . htmlspecialchars($usuario['id']) . "' class='btn btn-outline-primary btn-sm'>Ver</a>
-                            <a href='editarUsuario.php?id=" . htmlspecialchars($usuario['id']) . "' class='btn btn-outline-warning btn-sm'>Editar</a>
-                            <form action='../../core/controllers/UsersController.php' method='POST' style='display:inline;'>
-                                <input type='hidden' name='method' value='delete'>
-                                <input type='hidden' name='id' value='" . htmlspecialchars($usuario['id']) . "'>
-                                <button type='submit' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"¿Estás seguro de eliminar este usuario?\")'>Eliminar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>";
-        }
-        ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Fecha de nacimiento</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    include_once('../../core/controller/UsuariosController.php');
+                    $usuarios = indexUsers(); // Función para obtener usuarios desde el controlador
+                    foreach ($usuarios as $usuario) {
+                        echo '    
+                            <tr>
+                                <th scope="row">'.$usuario['idUser'].'</th>
+                                <td>'.$usuario['nombre'].'</td>
+                                <td>'.$usuario['apellido'].'</td>
+                                <td>'.$usuario['fecha_nacimiento'].'</td>
+                                <td>'.$usuario['direccion'].'</td>
+                                <td>'.($usuario['sexo'] == 'm' ? 'Masculino' : 'Femenino').'</td>
+                                <td>'.$usuario['telefono'].'</td>
+                                <td>'.$usuario['email'].'</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary"><i class="bi bi-0-circle"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>';
+                        }
+                ?>
+            </tbody>
+        </table>
     </div>
+    <div class="col-md-12 mb-3">
+            <a href="../../views/users/create.php" class="btn btn-primary">Crear Usuario</a>
+        </div>  
 </div>
 
 <!-- Footer -->

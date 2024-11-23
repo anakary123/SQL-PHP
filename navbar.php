@@ -107,9 +107,8 @@ function renderNavbar() {
                            <li class='nav-item dropdown'>
                                 <a class='nav-link dropdown-toggle' id='nav-users' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Usuarios</a>
                                 <ul class='dropdown-menu' aria-labelledby='nav-users'>
-                                    <li><a class='dropdown-item' href='$routes[14]'>Archivo 1</a></li>
-                                    <li><a class='dropdown-item' href='$routes[15]'>Archivo 2</a></li>
-                                    <li><a class='dropdown-item' href='$routes[16]'>Archivo 3</a></li>
+                                    <li><a class='dropdown-item' href='$routes[6]'>Listar</a></li>
+                                    <li><a class='dropdown-item' href='$routes[14]'>Crear</a></li>
                                 </ul>
                             </li>
                         </ul>

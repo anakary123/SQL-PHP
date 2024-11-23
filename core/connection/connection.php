@@ -1,5 +1,5 @@
 <?php
-function crearConexion() {
+function createConnection() {
     $host = 'localhost';
     $dbname = 'sitioweb';
     $user = 'root';
