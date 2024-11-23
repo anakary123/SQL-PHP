@@ -1,7 +1,7 @@
 <?php
 function createConnection() {
     $host = 'localhost';
-    $dbname = 'sitioweb';
+    $dbname = 'webpage';
     $user = 'root';
     $password = '';
     $charset = 'utf8mb4';
