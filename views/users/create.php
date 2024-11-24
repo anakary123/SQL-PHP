@@ -31,6 +31,10 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="col-md-6">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" required>
+            </div>
+            <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
@@ -39,12 +43,36 @@
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="col-md-6">
+                <label for="nickname" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nickname" name="usuario" required>
+            </div>
+            <div class="col-md-6">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required>
+            </div>
+            <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" required>
+            </div>
+            <div class="col-md-6">
+                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+            <div class="col-md-6">
                 <label for="rol" class="form-label">Rol</label>
                 <select class="form-select" id="rol" name="rol">
                     <option value="admin">Administrador</option>
                     <option value="user">Usuario</option>
                 </select>
             </div>
+            <div class="col-md-6">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo" name="sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            
             <div class="col-12">
                 <input type="hidden" name="method" value="create">
                 <button type="submit" class="btn btn-primary">Crear Usuario</button>

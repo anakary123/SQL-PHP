@@ -118,20 +118,7 @@ h1, p {
 }
 
 /*input de presupuesto*/
-.btn {
-    padding: 10px 25px;
-    font-size: 1.2em;
-    color: rgba(42, 81, 113, 0.615);
-    background-color: #c3f5f1;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: 65px;
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Familia tipográfica */
 
-}
 .btn-secondary {
     background-color:darkcyan;
     border: none;
@@ -141,11 +128,8 @@ h1, p {
     transition: background-color 0.3s;
     text-align: center;
 }
-.btn:hover {
-    background-color: #0fc2ea;
-}
-/*boton de la galeria*/
 
+/*boton de la galeria*/
 .custom-btn {
     padding: 10px 25px;
     margin-left: 70px;

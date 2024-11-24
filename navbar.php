@@ -65,7 +65,8 @@ function renderNavbar() {
     $routes = ObtenerRutas();
     $logo = ObtenerLogo();
 
-    return "<nav class='navbar navbar-expand-lg bg-light navbar-fixed'>
+    return "
+    <nav class='navbar navbar-expand-lg bg-light navbar-fixed'>
                 <div class='container-fluid'>
                     <a class='navbar-brand' href='#'>
                         <img src='$logo' alt='Logo' width='100' height='100'>
