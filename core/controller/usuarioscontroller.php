@@ -12,7 +12,7 @@ function handleRequest() {
                 deleteUser();
                 break;
             case 'update':
-                updateUser($_POST['id']);
+                updateUser($_POST['idUser']);
                 break;
         }
     }
@@ -46,29 +46,68 @@ function showUser(int $id) {
     return $stmt->fetch();
 }
 
-function storeUser() {
+function getLastIdUser() {
     $pdo = createConnection();
 
-    // Assign values from the request
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO users (name, email, password) 
-            VALUES (:name, :email, :password)";
+    $sql = "SELECT idUser FROM user_data ORDER BY idUser DESC LIMIT 1";
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindParam(':name', $name);
+    $stmt->execute();
+
+    return $stmt->fetch();
+}
+
+function storeUser() {
+    $pdo = createConnection();
+
+    $name = $_POST['nombre'];
+    $lastname = $_POST['apellido'];
+    $email = $_POST['email'];
+    $address = $_POST['direccion'];
+    $phone = $_POST['telefono'];
+    $birthdate = $_POST['fecha_nacimiento'];
+    $gender = $_POST['sexo'];
+    $role = $_POST['rol'];
+    $username = $_POST['usuario'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+    $sql = "INSERT INTO user_data (nombre, apellido, email, direccion, telefono, fecha_nacimiento, sexo) 
+            VALUES (:nombre, :apellido, :email, :direccion, :telefono, :fecha_nacimiento, :sexo)";
+            
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindParam(':nombre', $name);
+    $stmt->bindParam(':apellido', $lastname);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':direccion', $address);
+    $stmt->bindParam(':telefono', $phone);
+    $stmt->bindParam(':fecha_nacimiento', $birthdate);
+    $stmt->bindParam(':sexo', $gender);
 
     // Ejecutar la consulta
-    if ($stmt->execute()) {    
-        header('Location: ../../views/users.php');
-        exit();
+    if ($stmt->execute()) {            
+        $idUser = getLastIdUser()['idUser'];
+
+        $sql = "INSERT INTO user_login (idUser, usuario, rol, password) 
+                VALUES (:idUser, :usuario, :rol, :password)";
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindParam(':idUser', $idUser);
+        $stmt->bindParam(':usuario', $username);
+        $stmt->bindParam(':rol', $role);
+        $stmt->bindParam(':password', $password);
+
+        if ($stmt->execute()) {
+            header('Location: ../../views/users/users.php');
+            exit();
+        } else {
+            header('Location: ../../views/users/users.php');
+            exit();
+        }
     } else {
-        header('Location: ../../views/users.php');
+        header('Location: ../../views/users/users.php');
         exit();
     }
 }
@@ -76,7 +115,7 @@ function storeUser() {
 function updateUser(int $id) {
     $pdo = createConnection();
 
-    $name = $_POST['name'];
+    $name = $_POST['nombre'];
     $lastname = $_POST['apellido'];
     $email = $_POST['email'];
     $address = $_POST['direccion'];
@@ -86,11 +125,9 @@ function updateUser(int $id) {
     $role = $_POST['rol'];
     $username = $_POST['usuario'];
     $idUser = $_POST['idUser'];
-    $password = '';
+    $password = $_POST['password'];
 
-    if(! empty($_POST['password']) && password_verify($_POST['password'], $password)) {
-        $password = $_POST['password'];
-    }else{
+    if(! empty($_POST['password']) && ! password_verify($_POST['password'], $password)) {
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     }
 
@@ -128,10 +165,10 @@ function updateUser(int $id) {
     }
 
     if ($stmt->execute()) {
-        header('Location: ../../views/users.php');
+        header('Location: ../../views/users/users.php');
         exit();
     } else {
-        header('Location: ../../views/users.php');
+        header('Location: ../../views/users/users.php');
         exit();
     }
 }
@@ -141,17 +178,17 @@ function deleteUser() {
 
     $pdo = createConnection();
 
-    $sql = "DELETE FROM users WHERE id = :id";
+    $sql = "DELETE user_login, user_data FROM user_login INNER JOIN user_data ON user_login.idUser = user_data.idUser WHERE user_login.idUser = :id";
 
     $stmt = $pdo->prepare($sql);
 
     $stmt->bindParam(':id', $id);
 
     if ($stmt->execute()) {
-        header('Location: ../../views/users.php');
+        header('Location: ../../views/users/users.php');
         exit();
     } else {
-        header('Location: ../../views/users.php');
+        header('Location: ../../views/users/users.php');
         exit();
     }
 }

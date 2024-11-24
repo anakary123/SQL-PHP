@@ -25,7 +25,7 @@
     <!-- Formulario para crear un nuevo usuario -->
     <div class="mb-5">
         <h4>Crear Nuevo Usuario</h4>
-        <form action="../../core/users/UserController.php" method="POST" class="row g-3">
+        <form action="../../core/controller/UsuariosController.php" method="POST" class="row g-3">
             <div class="col-md-6">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -74,7 +74,7 @@
             </div>
             
             <div class="col-12">
-                <input type="hidden" name="method" value="create">
+                <input type="hidden" name="method" value="store">
                 <button type="submit" class="btn btn-primary">Crear Usuario</button>
             </div>
         </form>

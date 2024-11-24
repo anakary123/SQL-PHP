@@ -41,7 +41,7 @@
         ?>
 
         <h4>Actualizar Usuario</h4>
-        <form action="../../core/controllers/UsuariosController.php" method="POST" class="row g-3">
+        <form action="../../core/controller/UsuariosController.php" method="POST" class="row g-3">
             <div class="col-md-6">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required value="<?= $user['nombre'] ?>">

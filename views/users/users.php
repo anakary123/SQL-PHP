@@ -39,7 +39,7 @@
             </thead>
             <tbody>
                 <?php
-                    include_once __DIR__ . '/../../core/controller/usuarioscontroller.php';
+                    include_once __DIR__ . '/../../core/controller/UsuariosController.php';
                     $usuarios = indexUsers(); // Función para obtener usuarios desde el controlador
                     foreach ($usuarios as $usuario) {
                         echo '    
@@ -49,12 +49,16 @@
                                 <td>'.$usuario['apellido'].'</td>
                                 <td>'.$usuario['fecha_nacimiento'].'</td>
                                 <td>'.$usuario['direccion'].'</td>
-                                <td>'.($usuario['sexo'] == 'm' ? 'Masculino' : 'Femenino').'</td>
+                                <td>'.($usuario['sexo'] == 'M' ? 'Masculino' : 'Femenino').'</td>
                                 <td>'.$usuario['telefono'].'</td>
                                 <td>'.$usuario['email'].'</td>
                                 <td>
                                     <a href="../../views/users/update.php?id='.$usuario['idUser'].'" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <form action="../../core/controller/UsuariosController.php" method="POST">
+                                        <input type="hidden" name="idUser" value="'.$usuario['idUser'].'">
+                                        <input type="hidden" name="method" value="delete">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>';
                         }
