@@ -24,7 +24,7 @@ function handleRequest() {
 function indexUsers() {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM user_data";
+    $sql = "SELECT * FROM user_data JOIN user_login ON user_data.idUser = user_login.idUser";
 
     $stmt = $pdo->prepare($sql);
     

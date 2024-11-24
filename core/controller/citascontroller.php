@@ -6,8 +6,6 @@ require_once __DIR__ . '/../connection/connection.php';
 
 // Tu código continúa aquí...
 
-
-
 function handleRequest() {
     if (isset($_POST['method'])) {
         switch ($_POST['method']) {
@@ -28,7 +26,7 @@ function handleRequest() {
 }
 
 function index() {
-    $pdo = CrearConexion();
+    $pdo = createConnection();
 
     $sql = "SELECT * FROM citas";
 
@@ -40,7 +38,7 @@ function index() {
 }
 
 function show(int $id) {
-    $pdo = CrearConexion();
+    $pdo = createConnection();
 
     $sql = "SELECT * FROM citas WHERE id = :id";
 
@@ -54,7 +52,7 @@ function show(int $id) {
 }
 
  function store() {
-    $pdo = CrearConexion();
+    $pdo = createConnection();
 
     // Assign values from the request
     $titulo = $_POST['titulo'];
@@ -85,7 +83,7 @@ function show(int $id) {
 }
 
 function update(int $id) {
-    $pdo = CrearConexion();
+    $pdo = createConnection();
 
     $titulo = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
@@ -121,7 +119,7 @@ function update(int $id) {
 function delete() {
     $id = $_POST['idCita'];
 
-    $pdo = CrearConexion();
+    $pdo = createConnection();
 
     $sql = "DELETE FROM citas WHERE id = :id";
 

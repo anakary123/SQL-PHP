@@ -18,11 +18,8 @@
         }
     }
 
-    if (!function_exists('crearConexion')) {
-      die('Error: La función crearConexion no está definida.');
-    }  
     function index() {
-        $pdo = crearConexion();
+        $pdo = createConnection();
 
         $sql = "SELECT * FROM noticias";
 
@@ -34,7 +31,7 @@
     }
 
     function show(int $id) {
-        $pdo = crearConexion();
+        $pdo = createConnection();
 
         $sql = "SELECT * FROM noticias WHERE id = :id";
 
@@ -48,7 +45,7 @@
     }
 
         function store() {
-             $pdo = crearConexion();
+             $pdo = createConnection();
              $titulo = $_POST['titulo'];
              $imagen = $_POST['imagen'];
              $texto = $_POST['texto'];
@@ -75,7 +72,7 @@
         }
 
         function update() {
-            // $pdo = crearConexion();
+            // $pdo = createConnection();
 
             // $titulo = $_POST['titulo'];
             // $imagen = $_POST['imagen'];
@@ -106,7 +103,7 @@
         function delete() {
             $id = $_POST['idNoticia'];
 
-            $pdo = crearConexion();
+            $pdo = createConnection();
 
             $sql = "DELETE FROM noticias WHERE idNoticia = :id";
 

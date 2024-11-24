@@ -7,13 +7,13 @@
     <!-- Cargar CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/css/estilos.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
 </head>
 <body>
 
 <!-- Barra de navegación -->
 <div id="navbar" class="nav">
-    <?php include_once('../../navbar.php') ?>
+    <?php include_once __DIR__ . '/../../navbar.php' ?>
 </div>
 
 <div class="EspacioDebajoDelNavbar"></div>
@@ -51,52 +51,11 @@
             </div>
         </form>
     </div>
-
-    <!-- Lista de usuarios -->
-    <h4>Usuarios Registrados</h4>
-    <div class="row">
-    <?php
-        require_once('../../core/news/usuarioscontroller.php'); // Ajusta esta ruta
-
-        if (function_exists('index')) {
-            echo "La función index() está disponible.";
-        } else {
-            echo "La función index() no está definida.";
-        }
-        exit();
-       
-
-        // Obtener la lista de usuarios desde el controlador
-        $usuarios = index(); // Esta función debe obtener la lista de usuarios
-        foreach ($usuarios as $usuario) {
-            echo "
-            <div class='col-md-6 col-lg-4 mb-4'>
-                <div class='card shadow-sm'>
-                    <div class='card-body'>
-                        <h5 class='card-title text-dark mb-3'>" . htmlspecialchars($usuario['nombre']) . "</h5>
-                        <p class='card-text text-muted'>Email: " . htmlspecialchars($usuario['email']) . "</p>
-                        <p class='card-text text-muted'>Rol: " . htmlspecialchars($usuario['rol']) . "</p>
-                        <div class='d-flex justify-content-between align-items-center'>
-                            <!-- Botón para editar -->
-                            <a href='editarUsuario.php?id=" . htmlspecialchars($usuario['idUsuario']) . "' class='btn btn-outline-secondary btn-sm'>Editar</a>
-                            <!-- Botón para eliminar -->
-                            <form action='../../core/users/UserController.php' method='POST' style='display:inline;'>
-                                <input type='hidden' name='method' value='delete'>
-                                <input type='hidden' name='idUsuario' value='" . htmlspecialchars($usuario['idUsuario']) . "'>
-                                <button type='submit' class='btn btn-outline-danger btn-sm'>Eliminar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>";
-        }
-        ?>
-    </div>
 </div>
 
 <!-- Footer -->
 <div id="footer">
-    <?php include_once('../../footer.php') ?>
+    <?php include_once __DIR__ . '/../../footer.php' ?>
 </div>
 
 <!-- Cargar JS de Bootstrap -->

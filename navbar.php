@@ -84,32 +84,14 @@ function renderNavbar() {
                             <li class='nav-item'>
                                 <a class='nav-link' id='nav-contacto' href='$routes[3]'>Contacto</a>
                             </li>
-                            <li class='nav-item dropdown'>
-                                 <a class='nav-link' id='nav-news' href='$routes[4]'>Noticias</a>
-                                <ul class='dropdown-menu' aria-labelledby='nav-news'>
-                                    <li><a class='dropdown-item' href='$routes[8]'>Crear</a></li>
-                                    <li><a class='dropdown-item' href='$routes[9]'>Ver</a></li>
-                                    <li><a class='dropdown-item' href='$routes[10]'>Modificar</a></li>
-                                </ul>
+                            <li class='nav-item'>
+                                <a class='nav-link' id='nav-news' href='$routes[4]'>Noticias</a>
                             </li>
-                            <li class='nav-item dropdown'>
-                                <a class='nav-link' id='nav-contacto' href='$routes[5]'>Citas</a>
-                                
-
-                                <ul class='dropdown-menu' aria-labelledby='nav-appointments'>
-                                 a class='nav-link dropdown-toggle' href='#' id='nav-appointments' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Citas</a>
-
-                                    <li><a class='dropdown-item' href='$routes[11]'>Crear </a></li>
-                                    <li><a class='dropdown-item' href='$routes[12]'>Ver </a></li>
-                                    <li><a class='dropdown-item' href='$routes[13]'>Archivo </a></li>
-                                </ul>
+                            <li class='nav-item'>
+                                <a class='nav-link' id='nav-appointments' href='$routes[5]'>Citas</a>
                             </li>
-                           <li class='nav-item dropdown'>
-                                <a class='nav-link dropdown-toggle' id='nav-users' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Usuarios</a>
-                                <ul class='dropdown-menu' aria-labelledby='nav-users'>
-                                    <li><a class='dropdown-item' href='$routes[6]'>Listar</a></li>
-                                    <li><a class='dropdown-item' href='$routes[14]'>Crear</a></li>
-                                </ul>
+                            <li class='nav-item'>
+                                <a class='nav-link' id='nav-users' href='$routes[6]'>Usuarios</a>
                             </li>
                         </ul>
                         <span class='navbar-text'>

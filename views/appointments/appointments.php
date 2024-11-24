@@ -13,7 +13,7 @@
 
 <!-- Navbar -->
 <div id="navbar" class="nav">
-    <?php include_once('../../navbar.php') ?>
+    <?php include_once __DIR__ . '/../../navbar.php' ?>
 </div>
 
 <div class="EspacioDebajoDelNavbar"></div>
@@ -23,38 +23,14 @@
     <h2 class="text-center mt-5 mb-5"> Citas</h2>
     <div class="row">
         <?php
-        include_once('../../core/controller/citascontroller.php');
-        function storeCita() {
-            // Código de la función
-        
-            echo "
-            <div class='col-md-6 col-lg-4 mb-4'>
-                <div class='card shadow-sm'>
-                    <div class='card-body'>
-                        <h5 class='card-title text-dark mb-3'>" . htmlspecialchars($cita['titulo']) . "</h5>
-                        <p class='card-text text-muted'>Fecha: " . htmlspecialchars($cita['fecha']) . "</p>
-                        <p class='card-text'>" . htmlspecialchars(substr($cita['descripcion'], 0, 80)) . "...</p>
-                        <div class='d-flex justify-content-between align-items-center'>
-                            <a href='show.php?id=" . htmlspecialchars($cita['id']) . "' class='btn btn-outline-primary btn-sm'>Ver</a>
-                            <a href='update.php?id=" . htmlspecialchars($cita['id']) . "' class='btn btn-outline-warning btn-sm'>Editar</a>
-                            <form action='../../core/controller/citascontroller.php' method='POST' style='display:inline;'>
-                                <input type='hidden' name='method' value='delete'>
-                                <input type='hidden' name='id' value='" . htmlspecialchars($cita['id']) . "'>
-                                <button type='submit' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"¿Estás seguro de eliminar esta cita?\")'>Eliminar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>";
-        }
-        
-?>
+            include_once __DIR__ . '/../../core/controller/citascontroller.php';    
+        ?>
     </div>
 </div>
 
     <!-- Footer -->
     <div id="footer">
-        <?php include_once('../../footer.php') ?>
+        <?php include_once __DIR__ . '/../../footer.php' ?>
     </div>
 
 <!-- Cargar JS de Bootstrap -->
