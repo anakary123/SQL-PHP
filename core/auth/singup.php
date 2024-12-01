@@ -30,7 +30,7 @@ function signupUser() {
     $pdo = createConnection();
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO user_data (nombre,apellido,email,fecha_nacimiento,direccion,sexo,telefono) 
+    $sql = "INSERT INTO user_data (nombre,apellido,email,fecha_de_nacimiento,direccion,sexo,telefono) 
             VALUES (:name, :lastname, :email, :birthdate, :address, :sex, :phone)";
     
     $stmt = $pdo->prepare($sql);

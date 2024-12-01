@@ -16,51 +16,42 @@
     </div>
 
     <div class="container mt-5">
-
     <?php
-    include_once __DIR__ . '/../../core/controller/NewsController.php';
-    
-    $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
-            
-    $queryParams = explode('&', $parsedUrl['query'] ?? '');
-    
-    $parts = explode('=', $queryParams[0]);
-    
-    $noticia = $parts[1];
-?>
+        include_once __DIR__ . '/../../core/controller/NewsController.php';
 
-<?php
-    $noticia = showNoticia($noticia);
-?>
+        $id = $_GET['id'];
+
+        $noticia = show($id);
+
+        $usuarios = getUsers();
+    ?>
 
         <h1 class="text-center mb-4">Modificar Noticia</h1>
         <form action="../../core/controller/NewsController.php" method="POST" enctype="multipart/form-data">
-            <!-- Campo oculto para enviar el ID de la noticia (si es necesario) -->
-            <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>">
 
             <!-- Título de la noticia -->
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" value="<?= htmlspecialchars($noticias['titulo']) ?>" required>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="<?= htmlspecialchars($noticia['titulo']) ?>" required>
             </div>
 
             <!-- Fecha de publicación -->
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha de Publicación</label>
-                <input type="date" class="form-control" id="fecha" name="fecha" value="<?= htmlspecialchars($noticias['fecha']) ?>" required>
+                <input type="date" class="form-control" id="fecha" name="fecha" value="<?= htmlspecialchars($noticia['fecha']) ?>" required>
             </div>
 
             <!-- Contenido de la noticia -->
             <div class="mb-3">
                 <label for="texto" class="form-label">Texto</label>
-                <textarea class="form-control" id="texto" name="texto" rows="6" required><?= htmlspecialchars($noticias['texto']) ?></textarea>
+                <textarea class="form-control" id="texto" name="texto" rows="6" required><?= htmlspecialchars($noticia['texto']) ?></textarea>
             </div>
 
             <!-- Imagen actual -->
             <div class="mb-3">
                 <label for="imagen_actual" class="form-label">Imagen Actual</label>
                 <div>
-                    <img src="<?= htmlspecialchars($noticias['imagen']) ?>" alt="Imagen de la noticia" class="img-thumbnail" style="max-height: 150px;">
+                    <img src="<?= htmlspecialchars($noticia['imagen']) ?>" alt="Imagen de la noticia" class="img-thumbnail" style="max-height: 150px;">
                 </div>
             </div>
 
@@ -70,18 +61,29 @@
                 <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
             </div>
 
+            <div class="mb-3">
+                <label for="idUser" class="form-label">Usuario</label>
+                <select class="form-select" id="idUser" name="idUser">
+                    <?php foreach ($usuarios as $usuario): ?>
+                        <option value="<?= $usuario['idUser'] ?>"><?= $usuario['nombre'] ?> <?= $usuario['apellido'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <input type="hidden" name="method" value="update">
+
             <!-- Botón de envío -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                <a href="#" class="btn btn-secondary">Cancelar</a>
+                <a href="../../views/news/news.php" class="btn btn-secondary">Cancelar</a>
             </div>
-
-            <input type="hidden" name="method" value="update">
         </form>
     </div>
 
-    <div id="navbar" class="nav">
-        <?php include_once('../../footer.php') ?>
+    <div id="footer">
+      <?php
+        include_once('../../footer.php');
+      ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 

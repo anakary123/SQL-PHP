@@ -5,7 +5,7 @@ require_once __DIR__ . '/../connection/connection.php';
 function handleRequest() {
     if (isset($_POST['method'])) {
         switch ($_POST['method']) {
-            case 'create':
+            case 'store':
                 create();
                 break;
             case 'delete':
@@ -25,7 +25,7 @@ function handleRequest() {
 function index() {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM citas";
+    $sql = "SELECT * FROM citas JOIN users_data ON citas.idUser = users_data.idUser";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -58,7 +58,7 @@ function create(): void {
     $stmt->bindParam(':idUser', $idUser);
 
     if ($stmt->execute()) {
-        echo 'Cita creada correctamente';
+        header('Location: ../../views/appointments/appointments.php');
         exit();
     } else {
         header('Location: ../../views/appointments/create.php');
@@ -70,7 +70,7 @@ function create(): void {
 function show(int $id) {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM citas WHERE idCita = :idCita";
+    $sql = "SELECT * FROM citas JOIN users_data ON citas.idUser = users_data.idUser WHERE citas.idCita = :idCita";
 
     $stmt = $pdo->prepare($sql);
 
@@ -88,13 +88,19 @@ function update(): void {
     $idCita = $_POST['id'];
     $motivo_cita = $_POST['motivo_cita'];
     $fecha_cita = $_POST['fecha_cita'];
+    $idUser = $_POST['idUser'];
 
-    $sql = "UPDATE citas SET motivo_cita = :motivo_ cita, fecha_cita = :fecha_cita WHERE idCita = :idCita";
+    $sql = "UPDATE citas SET 
+            motivo_cita = :motivo_cita, 
+            fecha_cita = :fecha_cita, 
+            idUser = :idUser 
+            WHERE idCita = :idCita";
 
     $stmt = $pdo->prepare($sql);
 
     $stmt->bindParam(':motivo_cita', $motivo_cita);
     $stmt->bindParam(':fecha_cita', $fecha_cita);
+    $stmt->bindParam(':idUser', $idUser);
     $stmt->bindParam(':idCita', $idCita);
 
     if ($stmt->execute()) {
@@ -107,14 +113,16 @@ function update(): void {
 }
 
 // Elimina una cita de la base de datos
-function delete(int $id) {
+function delete() {
     $pdo = createConnection();
+
+    $idCita = $_POST['id'];
 
     $sql = "DELETE FROM citas WHERE idCita = :idCita";
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindParam(':idCita', $id);
+    $stmt->bindParam(':idCita', $idCita);
 
     if ($stmt->execute()) {
         header('Location: ../../views/appointments/appointments.php');
@@ -125,5 +133,12 @@ function delete(int $id) {
     }
 }
 
+function getUsers() {
+    $pdo = createConnection();
+
+    $sql = "SELECT * FROM users_data";
+
+    return $pdo->query($sql)->fetchAll();
+}
+
 handleRequest();
-?>

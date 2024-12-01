@@ -21,14 +21,12 @@
     // Obtener la lista de noticias
     $noticiasList = index();
 
-    // Asegurarse de que es un array
-    if (!is_array($noticiasList)) {
+    if(empty($noticiasList)) {
         $noticiasList = [];
     }
+
     ?>
 
-
-          
     <div class="EspacioDebajoDelNavbar"></div>
 
     <div class="container">
@@ -45,8 +43,19 @@
                                 <h5 class="card-title">#<?= htmlspecialchars($noticias['idNoticia']) ?> - <?= htmlspecialchars($noticias['titulo']) ?></h5>
                                 <p class="card-text"><?= htmlspecialchars($noticias['texto']) ?></p>
                             </div>
+
+                            <div class="d-flex justify-content-end">
+                                    <a href="../../views/news/update.php?id=<?= htmlspecialchars($noticias['idNoticia']) ?>" class="btn btn-primary me-2">Editar</a>
+                                    <form action="../../core/controller/NewsController.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($noticias['idNoticia']) ?>">
+                                        <input type="hidden" name="method" value="delete">
+                                        
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </div>
+
                             <div class="card-footer">
-                                <small class="text-muted">Fecha: <?= htmlspecialchars($noticias['fecha_publicacion']) ?></small>
+                                <small class="text-muted">Fecha: <?= htmlspecialchars($noticias['fecha']) ?></small>
                             </div>
                         </div>
                     </div>

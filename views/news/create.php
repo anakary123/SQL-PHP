@@ -12,8 +12,14 @@
   <body>
     
     <div id="navbar" class="nav">
-      <?php include_once __DIR__ . '../../../nabvar.php'?>
+      <?php include_once '../../navbar.php'?>
     </div>
+
+    <?php
+      include_once '../../core/controller/usuarioscontroller.php';
+      $usuarios = indexUsers();
+    ?>
+
     <div class="mb-5">
     <h4>Crear Noticia</h4>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
@@ -35,13 +41,22 @@
               <input type="file" class="form-control" id="imagen" name="imagen">
             </div>
 
+            <div>
+              <label for="idUser" class="form-label">Usuario</label>
+              <select class="form-select" id="idUser" name="idUser">
+                <?php foreach ($usuarios as $usuario): ?>
+                  <option value="<?= htmlspecialchars($usuario['idUser']) ?>"><?= htmlspecialchars($usuario['nombre']) ?> <?= htmlspecialchars($usuario['apellido']) ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
             <div class="mb-3">
               <label for="fecha" class="form-label">Fecha</label>
               <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
             <div class="col-12">
               <input type="hidden" name="method" value="store">
-              <button type="submit" class="btn btn-primary">Crear </button>
+              <button type="submit" class="btn btn-primary">Crear Noticia</button>
             </div>
           </form>
         </div>

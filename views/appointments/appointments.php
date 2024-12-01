@@ -25,8 +25,7 @@
                 $citasList = [];
             }
         ?>
-  
-
+        
         <div class="EspacioDebajoDelNavbar"></div>
 
         <div class="container">
@@ -35,10 +34,22 @@
                 <div class="container my-5">
                     <?php foreach ($citasList as $cita): ?>
                         <div class="col">
-                            <div class="card h-100">
+                            <div class="card h-200">
                                 <div class="card-body">
-                                    <h5 class="card-title">#<?= htmlspecialchars($cita['idCita']) ?> - Usuario: <?= htmlspecialchars($cita['idUser']) ?></h5>
+                                    <h5 class="card-title">#<?= htmlspecialchars($cita['idCita']) ?> - Usuario: <?= htmlspecialchars($cita['nombre']) ?> <?= htmlspecialchars($cita['apellido']) ?></h5>
                                     <p class="card-text"><strong>Motivo:</strong> <?= htmlspecialchars($cita['motivo_cita']) ?></p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="../../views/appointments/update.php?id=<?= htmlspecialchars($cita['idCita']) ?>" class="btn btn-primary me-2">Editar</a>
+                                    <form action="../../core/controller/citascontroller.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($cita['idCita']) ?>">
+                                        <input type="hidden" name="method" value="delete">
+                                        
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($cita['idCita']) ?>">
+                                        <input type="hidden" name="method" value="delete">
+                                        
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </div>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">Fecha: <?= htmlspecialchars($cita['fecha_cita']) ?></small>
@@ -49,7 +60,7 @@
                 </div>
             </div>
             <div class="col-md-12 mb-3">
-            <a href="../../views/appointments/create.php" class="btn btn-primary">Crear Usuario</a>
+            <a href="../../views/appointments/create.php" class="btn btn-primary">Crear Cita</a>
      </div>
         </div>
 

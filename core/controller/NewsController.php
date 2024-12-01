@@ -6,35 +6,36 @@
     function handleRequest() {
         if (isset($_POST ['method'])) {
             switch ($_POST ['method']) {
-                case 'create':
-                    crear();
+                case 'store':
+                    create();
                     break;
                 case 'delete':
-                    eliminar();
+                    delete();
                     break;
                 case 'show':
-                    mostrar();
+                    show();
+                    break;
                 case 'update':
-                    editar();
+                    update();
                     break;
             }
         }
     }
 
-    
     function index() {
         $pdo = createConnection();
     
-        $sql = "SELECT * FROM noticias";
+        $sql = "SELECT * FROM noticias JOIN users_data ON noticias.idUser = users_data.idUser ORDER BY noticias.idNoticia DESC";
     
         $stmt = $pdo->prepare($sql);
+        
         $stmt->execute();
     
         $noticias = $stmt->fetchAll();
     
         if (empty($noticias)) {
             echo "No se encontraron noticias en la base de datos.";
-            exit;
+            return;
         }
     
         return $noticias;
@@ -44,12 +45,11 @@
     function create(): void {
         $pdo = createConnection(); 
 
-       
         $titulo = $_POST ['titulo'];
-        $imagen = $_FILES['imagen']['tmp_name'];
+        $imagen = $_POST['imagen'];
         $texto = $_POST ['texto'];
         $fecha = date('Y-m-d');
-        $idUser = 4;
+        $idUser = $_POST['idUser'];
 
         $sql = "INSERT INTO noticias ( titulo, imagen, texto, fecha, idUser)
                 VALUES ( :titulo, :imagen, :texto, :fecha, :idUser)";
@@ -64,8 +64,7 @@
         $stmt->bindParam(':idUser', $idUser);
 
         if ($stmt->execute()) {
-
-            echo 'Noticia creada correctamente';
+            header('Location: ../../views/news/news.php');
             exit();
         } else {
             header('Location: ../../views/news/create.php');
@@ -90,7 +89,6 @@
 
     }
 
-        //edita una noticia en la base de datos
     function update(): void {
             $pdo = createConnection();
 
@@ -99,8 +97,15 @@
             $fecha = $_POST['fecha'];
             $texto = $_POST['texto'];
             $imagen = $_POST['imagen'];
+            $idUser = $_POST['idUser'];
 
-            $sql = "UPDATE noticias SET titulo = :titulo, fecha = :fecha, texto = :texto, imagen = :imagen WHERE idNoticia = :idNoticia";
+            $sql = "UPDATE noticias SET 
+                    titulo = :titulo, 
+                    fecha = :fecha, 
+                    texto = :texto, 
+                    imagen = :imagen, 
+                    idUser = :idUser 
+                    WHERE idNoticia = :idNoticia";
 
             $stmt = $pdo->prepare($sql);
 
@@ -109,9 +114,10 @@
             $stmt->bindParam(':texto', $texto);
             $stmt->bindParam(':imagen', $imagen);
             $stmt->bindParam(':idNoticia', $idNoticia);
+            $stmt->bindParam(':idUser', $idUser);
 
             if ($stmt->execute()) {
-                    header('Location: ../../views/news/news.php');
+                header('Location: ../../views/news/news.php');
                 exit();
             } else {
                 header('Location: ../../views/news/update.php');
@@ -120,14 +126,16 @@
     }
 
     //elimina una noticia de la base de datos
-    function delete(int $id) {
+    function delete() {
         $pdo = createConnection();
 
-        $sql = "DELETE FROM noticias WHERE id = :id";
+        $id = $_POST['id'];
+
+        $sql = "DELETE FROM noticias WHERE idNoticia = :idNoticia";
 
         $stmt = $pdo->prepare($sql);
 
-        $stmt->bindParam('id', $id);
+        $stmt->bindParam(':idNoticia', $id);
 
         if ($stmt->execute()) {
 
@@ -140,6 +148,16 @@
 
     }
 
-    handleRequest()
+    function getUsers() {
+        $pdo = createConnection();
 
-    ?>
+        $sql = "SELECT * FROM users_data";
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    handleRequest();

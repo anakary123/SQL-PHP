@@ -46,8 +46,8 @@
                             <tr>
                                 <th scope="row">'.$usuario['idUser'].'</th>
                                 <td>'.$usuario['nombre'].'</td>
-                                <td>'.$usuario['apellidos'].'</td>
-                                <td>'.$usuario['fecha_nacimiento'].'</td>
+                                <td>'.$usuario['apellido'].'</td>
+                                <td>'.$usuario['fecha_de_nacimiento'].'</td>
                                 <td>'.$usuario['direccion'].'</td>
                                 <td>'.($usuario['sexo'] == 'M' ? 'Masculino' : 'Femenino').'</td>
                                 <td>'.$usuario['telefono'].'</td>

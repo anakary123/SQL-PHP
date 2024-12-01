@@ -35,7 +35,7 @@ function indexUsers() {
 function showUser(int $id) {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM users_data JOIN users_login ON users_data.idUser = users_login.idUser WHERE users_data.idUser = :id";
+    $sql = "SELECT * FROM citas JOIN users_data ON citas.idUser = users_data.idUser WHERE users_data.idUser = :id";
 
     $stmt = $pdo->prepare($sql);
 
@@ -72,7 +72,7 @@ function storeUser() {
     $username = $_POST['usuario'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO users_data (nombre, apellidos, email, direccion, telefono, fecha_nacimiento, sexo) 
+    $sql = "INSERT INTO users_data (nombre, apellidos, email, direccion, telefono, fecha_de_nacimiento, sexo) 
             VALUES (:nombre, :apellidos, :email, :direccion, :telefono, :fecha_nacimiento, :sexo)";
             
     $stmt = $pdo->prepare($sql);

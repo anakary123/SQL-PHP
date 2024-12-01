@@ -34,6 +34,20 @@
               <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" required>
             </div>
 
+             <!-- Campo para el id del usuario -->
+             <div class="mb-3">
+              <label for="idUser" class="form-label">Usuario</label>
+              <select class="form-select" id="idUser" name="idUser">
+                <?php
+                  require_once('../../core/controller/usuarioscontroller.php');
+                  $usuarios = indexUsers();
+                  foreach ($usuarios as $usuario) {
+                    echo '<option value="'.$usuario['idUser'].'">'.$usuario['nombre'].' '.$usuario['apellidos'].'</option>';
+                  }
+                ?>
+              </select>
+            </div>
+
             <!-- Campo para la descripción de la cita -->
             <div class="mb-3">
               <label for="motivo_cita" class="form-label">Motivo</label>

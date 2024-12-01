@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-6">
                 <label for="apellido" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" name="apellidos" required value="<?= $user['apellidos'] ?>">
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required value="<?= $user['apellido'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
