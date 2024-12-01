@@ -1,7 +1,7 @@
 <?php
 function createConnection() {
     $host = 'localhost';
-    $dbname = 'webpage';
+    $dbname = 'basededatos';
     $user = 'root';
     $password = '';
     $charset = 'utf8mb4';

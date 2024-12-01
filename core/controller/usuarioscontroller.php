@@ -22,7 +22,7 @@ function handleRequest() {
 function indexUsers() {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM user_data JOIN user_login ON user_data.idUser = user_login.idUser";
+    $sql = "SELECT * FROM users_data JOIN users_login ON users_data.idUser = users_login.idUser";
 
     $stmt = $pdo->prepare($sql);
     
@@ -35,7 +35,7 @@ function indexUsers() {
 function showUser(int $id) {
     $pdo = createConnection();
 
-    $sql = "SELECT * FROM user_data JOIN user_login ON user_data.idUser = user_login.idUser WHERE user_data.idUser = :id";
+    $sql = "SELECT * FROM users_data JOIN users_login ON users_data.idUser = users_login.idUser WHERE users_data.idUser = :id";
 
     $stmt = $pdo->prepare($sql);
 
@@ -49,7 +49,7 @@ function showUser(int $id) {
 function getLastIdUser() {
     $pdo = createConnection();
 
-    $sql = "SELECT idUser FROM user_data ORDER BY idUser DESC LIMIT 1";
+    $sql = "SELECT idUser FROM users_data ORDER BY idUser DESC LIMIT 1";
 
     $stmt = $pdo->prepare($sql);
 
@@ -62,7 +62,7 @@ function storeUser() {
     $pdo = createConnection();
 
     $name = $_POST['nombre'];
-    $lastname = $_POST['apellido'];
+    $lastname = $_POST['apellidos'];
     $email = $_POST['email'];
     $address = $_POST['direccion'];
     $phone = $_POST['telefono'];
@@ -72,13 +72,13 @@ function storeUser() {
     $username = $_POST['usuario'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO user_data (nombre, apellido, email, direccion, telefono, fecha_nacimiento, sexo) 
-            VALUES (:nombre, :apellido, :email, :direccion, :telefono, :fecha_nacimiento, :sexo)";
+    $sql = "INSERT INTO users_data (nombre, apellidos, email, direccion, telefono, fecha_nacimiento, sexo) 
+            VALUES (:nombre, :apellidos, :email, :direccion, :telefono, :fecha_nacimiento, :sexo)";
             
     $stmt = $pdo->prepare($sql);
 
     $stmt->bindParam(':nombre', $name);
-    $stmt->bindParam(':apellido', $lastname);
+    $stmt->bindParam(':apellidos', $lastname);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':direccion', $address);
     $stmt->bindParam(':telefono', $phone);
@@ -89,7 +89,7 @@ function storeUser() {
     if ($stmt->execute()) {            
         $idUser = getLastIdUser()['idUser'];
 
-        $sql = "INSERT INTO user_login (idUser, usuario, rol, password) 
+        $sql = "INSERT INTO users_login (idUser, usuario, rol, password) 
                 VALUES (:idUser, :usuario, :rol, :password)";
 
         $stmt = $pdo->prepare($sql);
@@ -116,7 +116,7 @@ function updateUser(int $id) {
     $pdo = createConnection();
 
     $name = $_POST['nombre'];
-    $lastname = $_POST['apellido'];
+    $lastname = $_POST['apellidos'];
     $email = $_POST['email'];
     $address = $_POST['direccion'];
     $phone = $_POST['telefono'];
@@ -131,18 +131,18 @@ function updateUser(int $id) {
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     }
 
-    $sql = "UPDATE user_data 
-            JOIN user_login ON user_data.idUser = user_login.idUser 
-            SET user_data.nombre = :nombre, 
-                user_data.apellido = :apellido,
-                user_data.email = :email,
-                user_data.direccion = :direccion,
-                user_data.telefono = :telefono,
-                user_data.fecha_nacimiento = :fecha_nacimiento,
-                user_data.sexo = :sexo,
-                user_login.usuario = :usuario,
-                user_login.rol = :rol" .
-                ($password ? ", user_login.password = :password" : "") .
+    $sql = "UPDATE users_data 
+            JOIN users_login ON user_data.idUser = users_login.idUser 
+            SET users_data.nombre = :nombre, 
+                users_data.apellidos = :apellidos,
+                users_data.email = :email,
+                users_data.direccion = :direccion,
+                users_data.telefono = :telefono,
+                users_data.fecha_nacimiento = :fecha_nacimiento,
+                users_data.sexo = :sexo,
+                users_login.usuario = :usuario,
+                users_login.rol = :rol" .
+                ($password ? ", users_login.password = :password" : "") .
            " WHERE user_data.idUser = :id";
 
     
@@ -150,7 +150,7 @@ function updateUser(int $id) {
     $stmt = $pdo->prepare($sql);
 
     $stmt->bindParam(':nombre', $name);
-    $stmt->bindParam(':apellido', $lastname);
+    $stmt->bindParam(':apellidos', $lastname);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':direccion', $address);
     $stmt->bindParam(':telefono', $phone);
@@ -178,7 +178,7 @@ function deleteUser() {
 
     $pdo = createConnection();
 
-    $sql = "DELETE user_login, user_data FROM user_login INNER JOIN user_data ON user_login.idUser = user_data.idUser WHERE user_login.idUser = :id";
+    $sql = "DELETE users_login, users_data FROM users_login INNER JOIN users_data ON users_login.idUser = users_data.idUser WHERE users_login.idUser = :id";
 
     $stmt = $pdo->prepare($sql);
 

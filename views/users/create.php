@@ -31,8 +31,8 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="col-md-6">
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                <label for="apellido" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required>
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>

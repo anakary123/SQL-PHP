@@ -16,34 +16,51 @@
     </div>
 
     <div class="container mt-5">
+
+    <?php
+    include_once __DIR__ . '/../../core/controller/NewsController.php';
+    
+    $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
+            
+    $queryParams = explode('&', $parsedUrl['query'] ?? '');
+    
+    $parts = explode('=', $queryParams[0]);
+    
+    $noticia = $parts[1];
+?>
+
+<?php
+    $noticia = showNoticia($noticia);
+?>
+
         <h1 class="text-center mb-4">Modificar Noticia</h1>
-        <form action="../../core/news/NewsController.php" method="POST" enctype="multipart/form-data">
+        <form action="../../core/controller/NewsController.php" method="POST" enctype="multipart/form-data">
             <!-- Campo oculto para enviar el ID de la noticia (si es necesario) -->
             <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>">
 
             <!-- Título de la noticia -->
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" value="<?= htmlspecialchars($noticia['titulo']) ?>" required>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="<?= htmlspecialchars($noticias['titulo']) ?>" required>
             </div>
 
             <!-- Fecha de publicación -->
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha de Publicación</label>
-                <input type="date" class="form-control" id="fecha" name="fecha" value="<?= htmlspecialchars($noticia['fecha']) ?>" required>
+                <input type="date" class="form-control" id="fecha" name="fecha" value="<?= htmlspecialchars($noticias['fecha']) ?>" required>
             </div>
 
             <!-- Contenido de la noticia -->
             <div class="mb-3">
-                <label for="contenido" class="form-label">Contenido</label>
-                <textarea class="form-control" id="contenido" name="contenido" rows="6" required><?= htmlspecialchars($noticia['contenido']) ?></textarea>
+                <label for="texto" class="form-label">Texto</label>
+                <textarea class="form-control" id="texto" name="texto" rows="6" required><?= htmlspecialchars($noticias['texto']) ?></textarea>
             </div>
 
             <!-- Imagen actual -->
             <div class="mb-3">
                 <label for="imagen_actual" class="form-label">Imagen Actual</label>
                 <div>
-                    <img src="<?= htmlspecialchars($noticia['imagen']) ?>" alt="Imagen de la noticia" class="img-thumbnail" style="max-height: 150px;">
+                    <img src="<?= htmlspecialchars($noticias['imagen']) ?>" alt="Imagen de la noticia" class="img-thumbnail" style="max-height: 150px;">
                 </div>
             </div>
 
@@ -56,7 +73,7 @@
             <!-- Botón de envío -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                <a href="listado_noticias.php" class="btn btn-secondary">Cancelar</a>
+                <a href="#" class="btn btn-secondary">Cancelar</a>
             </div>
 
             <input type="hidden" name="method" value="update">

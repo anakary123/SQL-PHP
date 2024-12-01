@@ -21,7 +21,7 @@
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="card" style="width: 30rem;">
         <div class="card-body">    
-          <form action="../../core/citas/citascontroller.php" method="POST">
+          <form action="../../core/controller/citascontroller.php" method="POST">
             <!-- Campo para el título de la cita -->
             <div class="mb-3">
               <label for="titulo" class="form-label">Título de la Cita</label>
@@ -30,14 +30,14 @@
 
             <!-- Campo para la fecha de la cita -->
             <div class="mb-3">
-              <label for="fecha" class="form-label">Fecha</label>
-              <input type="date" class="form-control" id="fecha" name="fecha" required>
+              <label for="fecha_cita" class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" required>
             </div>
 
             <!-- Campo para la descripción de la cita -->
             <div class="mb-3">
-              <label for="descripcion" class="form-label">Descripción</label>
-              <textarea class="form-control" id="descripcion" name="descripcion" rows="5"></textarea>
+              <label for="motivo_cita" class="form-label">Motivo</label>
+              <textarea class="form-control" id="motivo_cita" name="motivo_cita" rows="5"></textarea>
             </div>
 
             <!-- Campo oculto para indicar la acción (crear/almacenar) -->

@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Apellidos</th>
                     <th scope="col">Fecha de nacimiento</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">Sexo</th>
@@ -46,7 +46,7 @@
                             <tr>
                                 <th scope="row">'.$usuario['idUser'].'</th>
                                 <td>'.$usuario['nombre'].'</td>
-                                <td>'.$usuario['apellido'].'</td>
+                                <td>'.$usuario['apellidos'].'</td>
                                 <td>'.$usuario['fecha_nacimiento'].'</td>
                                 <td>'.$usuario['direccion'].'</td>
                                 <td>'.($usuario['sexo'] == 'M' ? 'Masculino' : 'Femenino').'</td>
@@ -68,7 +68,7 @@
     </div>
     <div class="col-md-12 mb-3">
             <a href="../../views/users/create.php" class="btn btn-primary">Crear Usuario</a>
-        </div>  
+     </div>  
 </div>
 
 <!-- Footer -->
